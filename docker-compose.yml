@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  tracecotton-dw-postgres:
+    container_name: tracecotton-dw-postgres
+    image: postgres:12.8-alpine
+    ports:
+      - 5440:5432
+    environment:
+      - POSTGRES_USER=${RENNER_DW_USER}
+      - POSTGRES_PASSWORD=${RENNER_DW_PASS}
+      - POSTGRES_DB=${RENNER_DW_NAME}
+      - PGDATA=/data/db
+      - PGTZ=GMT
+    expose:
+      - 5432
+    volumes:
+      - /data/postgres/tracecotton-dw-postgres:/data/db/:z
+  tracecotton-b2b-postgres:
+    container_name: tracecotton-b2b-postgres
+    image: postgres:12.8-alpine
+    ports:
+      - 5441:5432
+    environment:
+      - POSTGRES_USER=${TYPEORM_USERNAME}
+      - POSTGRES_PASSWORD=${TYPEORM_PASSWORD}
+      - POSTGRES_DB=${TYPEORM_DATABASE}
+      - PGDATA=/data/db
+      - PGTZ=GMT
+    expose:
+      - 5432
+    volumes:
+      - /data/postgres/tracecotton-b2b-postgres:/data/db/:z

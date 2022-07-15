@@ -1,0 +1,1 @@
+export const AVAILABLE_COMPANY_INSPECTION_TYPES = ['SIF', 'SIE', 'SIM']

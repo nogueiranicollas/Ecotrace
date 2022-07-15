@@ -1,0 +1,7 @@
+{
+  "env": { "NODE_ENV": "development" },
+  "exec": "node -r tsconfig-paths/register -r ts-node/register",
+  "ext": "ts,json",
+  "ignore": ["*.spec.js", "node_modules", ".git"],
+  "verbose": true
+}
